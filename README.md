@@ -1,33 +1,11 @@
 # Remote Component Starter Kit
 
-![Starter Kit](https://raw.githubusercontent.com/Paciolan/remote-component-starter/master/media/icon-small.png)
 
-Starter Kit for quickly creating a Remote React Component that can be Remotely Loaded by `@paciolan/remote-component`.
+Starter Kit for quickly creating a Remote React Component that can be Remotely Loaded by Trood EM Composer
 
 ## Getting Started
 
-Clone the repository and initialize your project
-
-```bash
-# create new repo
-mkdir my-component
-cd my-component
-git init
-
-# pull the remote component starter kit
-git pull https://github.com/Paciolan/remote-component-starter.git --depth=1
-git commit --amend -m "chore: 🛠️ pull remote-component-starter"
-
-# install dependencies
-npm ci
-```
-
-Modify `package.json` and replace the starter kit values with your own.
-
-- set `name` to the name of your project.
-- set `description` to describe your project.
-- set `repository` to point to your repository.
-- set `license` to reflect the license of your project.
+Clone the repository or download it in zip
 
 ## Files
 
@@ -59,10 +37,6 @@ The component can be debugged locally by first starting `webpack-dev-server`.
 npm run start
 ```
 
-Now (using VSCODE), go to the Debug tab, select "Launch Chrome" and start the debugger (F5).
-
-You should now be able to set breakpoints and step through the code.
-
 ## Changing the Output
 
 The bundle as a default will be output to the `dist/main.js`. This can be updated by changing the following two files:
@@ -87,38 +61,8 @@ const url =
   global.location.hostname === "localhost" ? "/dist/main.js" : "main.js";
 ```
 
-## External Dependencies
+## Upload and use
 
-The Remote Component is self contained with all of it's dependencies bundled with webpack. Any dependencies that will be provided by the app should be marked as `external` in the `webpack.config.js`.
-
-In this example, `react` and `prop-types` are added to `externals`. They will not be included in the bundle. The web application is expected to provide these dependencies.
-
-```javascript
-module.exports = {
-  output: {
-    libraryTarget: "commonjs"
-  },
-  externals: {
-    react: "react",
-    "prop-types": "prop-types"
-  }
-};
-```
-
-## Commiting
-
-Commits are added to the repository with commitizen compatible `git-cz`.
-
-```bash
-# stage all changes
-git add .
-
-# run commitizen
-npm run cz
-```
-
-## Contributors
-
-Joel Thoms (https://twitter.com/joelnet)
-
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](www.flaticon.com)
+After building step you can upload output file (default `"/dist/main.js"`) to our file service or any server (with CORS support)
+For use your custom component in Trood EM Composer paste component `Remote` into fragment and set url address to uploaded js file
+In Advanced settings of `Remote` component you can set any props
